@@ -1,7 +1,7 @@
 /* ===================================================
    OMKAR KALE — PREMIUM PORTFOLIO JAVASCRIPT
    Vanilla JS — Modular, Performance-Optimized
-=================================================== */
+   =================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initLoader();
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ===================================================
    1. LOADING SCREEN
-=================================================== */
+   =================================================== */
 function initLoader() {
   const loader = document.getElementById('loader');
   window.addEventListener('load', () => {
@@ -31,7 +31,7 @@ function initLoader() {
 
 /* ===================================================
    2. FLOATING PARTICLES BACKGROUND (Canvas)
-=================================================== */
+   =================================================== */
 function initParticles() {
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
@@ -92,7 +92,7 @@ function initParticles() {
 
 /* ===================================================
    3. FLOATING NEURAL NETWORK NODES (Hero)
-=================================================== */
+   =================================================== */
 function initNeuralNetwork() {
   const container = document.getElementById('neuralNetwork');
   const nodeCount = 18;
@@ -110,7 +110,7 @@ function initNeuralNetwork() {
 
 /* ===================================================
    4. MOUSE-FOLLOWING GLOW EFFECT
-=================================================== */
+   =================================================== */
 function initMouseGlow() {
   const glow = document.getElementById('mouseGlow');
   let mouseX = 0, mouseY = 0;
@@ -122,7 +122,6 @@ function initMouseGlow() {
   });
 
   function animateGlow() {
-    // Smooth easing toward the mouse position
     currentX += (mouseX - currentX) * 0.1;
     currentY += (mouseY - currentY) * 0.1;
     glow.style.transform = `translate(${currentX}px, ${currentY}px) translate(-50%, -50%)`;
@@ -134,7 +133,7 @@ function initMouseGlow() {
 
 /* ===================================================
    5. NAVBAR — SCROLL STATE, MOBILE MENU, ACTIVE LINKS
-=================================================== */
+   =================================================== */
 function initNavbar() {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
@@ -142,19 +141,16 @@ function initNavbar() {
   const links = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section[id]');
 
-  // Navbar background on scroll
   window.addEventListener('scroll', () => {
     navbar.classList.toggle('scrolled', window.scrollY > 50);
     updateActiveLink();
   });
 
-  // Mobile menu toggle
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
     navLinks.classList.toggle('active');
   });
 
-  // Close mobile menu on link click + smooth scroll
   links.forEach((link) => {
     link.addEventListener('click', (e) => {
       hamburger.classList.remove('active');
@@ -162,7 +158,6 @@ function initNavbar() {
     });
   });
 
-  // Highlight active section link
   function updateActiveLink() {
     let current = '';
     sections.forEach((section) => {
@@ -185,7 +180,7 @@ function initNavbar() {
 
 /* ===================================================
    6. TYPING ANIMATION — HERO ROLES
-=================================================== */
+   =================================================== */
 function initTypingAnimation() {
   const typingText = document.getElementById('typingText');
   const roles = [
@@ -237,7 +232,7 @@ function initTypingAnimation() {
 
 /* ===================================================
    7. SCROLL REVEAL ANIMATIONS (Intersection Observer)
-=================================================== */
+   =================================================== */
 function initScrollReveal() {
   const revealElements = document.querySelectorAll('.reveal');
 
@@ -255,7 +250,6 @@ function initScrollReveal() {
 
   revealElements.forEach((el) => observer.observe(el));
 
-  // Hero reveals trigger immediately on load
   document.querySelectorAll('.hero .reveal').forEach((el) => {
     requestAnimationFrame(() => el.classList.add('visible'));
   });
@@ -263,7 +257,7 @@ function initScrollReveal() {
 
 /* ===================================================
    8. ANIMATED COUNTERS (Statistics)
-=================================================== */
+   =================================================== */
 function initCounters() {
   const counters = document.querySelectorAll('.stat-number');
 
@@ -286,7 +280,6 @@ function initCounters() {
     function update(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic for a smooth deceleration
       const eased = 1 - Math.pow(1 - progress, 3);
       const value = Math.floor(eased * target);
 
@@ -305,7 +298,7 @@ function initCounters() {
 
 /* ===================================================
    9. SKILL PROGRESS BAR ANIMATIONS
-=================================================== */
+   =================================================== */
 function initSkillBars() {
   const skillFills = document.querySelectorAll('.skill-fill');
 
@@ -314,7 +307,6 @@ function initSkillBars() {
       if (entry.isIntersecting) {
         const fill = entry.target;
         const width = fill.getAttribute('data-width');
-        // Slight delay for staggered effect within a card
         requestAnimationFrame(() => {
           fill.style.width = `${width}%`;
         });
@@ -328,7 +320,7 @@ function initSkillBars() {
 
 /* ===================================================
    10. CONTACT FORM HANDLING
-=================================================== */
+   =================================================== */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   const successMsg = document.getElementById('formSuccess');
@@ -336,7 +328,6 @@ function initContactForm() {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Basic client-side validation feedback
     const inputs = form.querySelectorAll('input, textarea');
     let valid = true;
 
@@ -351,7 +342,6 @@ function initContactForm() {
 
     if (!valid) return;
 
-    // Simulate successful submission
     successMsg.classList.add('visible');
     form.reset();
 
@@ -363,7 +353,7 @@ function initContactForm() {
 
 /* ===================================================
    11. BACK TO TOP BUTTON
-=================================================== */
+   =================================================== */
 function initBackToTop() {
   const button = document.getElementById('backToTop');
 
